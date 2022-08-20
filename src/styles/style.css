@@ -1,0 +1,259 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    /* background: url('../assets/mountain.jpg'); */
+    background-size: cover;
+    height: 100vh;
+    font-size: 3rem;
+    display: grid;
+    grid-template-rows: max-content 3fr minmax(auto, 100px);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo-container img {
+    max-height: 200px;
+}
+
+.app-body {
+    display: grid;
+    grid-template-columns: minmax(auto, 1fr) 4fr;
+
+}
+
+sidebar {
+    background-color: rgb(200, 200, 200);
+}
+
+.main-body {
+    background-color: rgb(235, 235, 235);
+    padding: 20px;
+}
+
+
+footer {
+    background-color: darkgray;
+}
+
+
+.task {
+    position: relative;
+    display: grid;
+    font-size: 1.5rem;
+    background-color: azure;
+    /* height: 50px; */
+    margin-bottom: 20px;
+    align-items: end;
+    width: 100%;
+    column-gap: 20px;
+    grid-template-columns: 200px 200px minmax(max-content, auto) minmax(max-content, 120px) 100px 50px;
+    grid-template-areas: 
+        'project-l title-l description-l date-l priority-l complete-l'
+        'project-v title-v description-v date-v priority-v complete-v'
+        'btn-ctn   btn-ctn btn-ctn       btn-ctn btn-ctn   btn-ctn'
+        'expand    expand  expand        expand  expand    expand'
+        ;
+}
+
+/* .project .label { grid-area: project-l; }
+.project .item { grid-area: project-v; } */
+.task-button-container {
+    grid-area: btn-ctn;
+}
+.task-expand {
+    grid-area: expand;
+}
+
+
+
+
+/* 
+.task .project::before {
+    content: "PROJECT";
+    font-size: 14px;
+    position: absolute;
+    top: 8px;
+}
+
+.task .title::before {
+    content: "TITLE";
+    font-size: 14px;
+    position: absolute;
+    top: 8px;
+}
+
+.task .description::before {
+    content: "DESCRIPTION";
+    font-size: 14px;
+    position: absolute;
+    top: 8px;
+}
+
+.task .date::before {
+    content: "DATE";
+    font-size: 14px;
+    position: absolute;
+    top: 8px;
+}
+
+.task .priority::before {
+    content: "PRIORITY";
+    font-size: 14px;
+    position: absolute;
+    top: 8px;
+}
+
+.task .completed::before {
+    content: "DONE?";
+    font-size: 14px;
+    position: absolute;
+    top: 8px;
+} */
+
+.task .item {
+    
+}
+
+.task .description {
+    background-color: rgb(177, 130, 177);
+}
+
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+/* Sidebar */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+} 
+ 
+.project-name-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    /* gap: 20px; */
+    background-color: lavender;
+}
+
+.project-list a {
+    cursor: pointer;
+    /* background-color: lavender; */
+    display: flex;
+    /* padding: 0px 10px; */
+    font-size: 2rem;
+  }
+
+.project-list a:hover {
+    /* box-shadow: 2px 2px 2px rgb(254, 0, 0); */
+    color: red;
+  }
+
+
+/* delete warning message */
+#project-modal {
+    display: none;
+    align-items: center;
+    justify-items: center;
+    height: 25%;
+    width: 80%;
+    margin: auto;
+  }
+
+  #project-modal .close-modal {
+    display: none;
+  }
+
+  .task-expand {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .task-button-container {
+    width: 100%;
+    background-color: #e5d9d9;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .completed {
+    overflow: hidden;
+  }
+
+
+
+  /* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
